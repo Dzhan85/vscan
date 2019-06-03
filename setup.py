@@ -1,6 +1,6 @@
 """ __Doc__ File handle class """
 from setuptools import find_packages, setup
-from vscan.lib.core.__version__ import __version__
+from VHostScan.lib.core.__version__ import __version__
 
 
 def dependencies(imported_file):
@@ -23,10 +23,10 @@ with open("README.md") as file:
                     "can be used with pivot tools, detect catch-all"
                     "scenarios, aliases and dynamic default pages.",
         long_description=file.read(),
-        author="codingo",
+        author="Luis",
         version=__version__,
-        author_email="co",
-        url="https://github.com/",
+        author_email="atakurban@gmail.com",
+        url="https://github.com/Dzhan85/vscan",
         packages=find_packages(exclude=('tests')),
         package_data={'vscan': ['*.txt']},
         entry_points={
