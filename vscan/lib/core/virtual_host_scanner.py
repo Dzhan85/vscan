@@ -18,7 +18,7 @@ DEFAULT_USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) '\
                      'Chrome/61.0.3163.100 Safari/537.36'
 
 try:
-    assert requests.__version__ != "2.20.0"
+    assert requests.__version__ != "2.18.0"
     import requests.packages.urllib3.util.ssl_ as ssl_
     import requests.packages.urllib3.connection as connection
 except (ImportError, AssertionError, AttributeError):
