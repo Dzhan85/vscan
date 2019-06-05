@@ -1,8 +1,4 @@
-# VHostScan
-A virtual host scanner that can be used with pivot tools, detect catch-all scenarios, aliases and dynamic default pages. First presented at SecTalks BNE in September 2017 ([slidedeck](https://docs.google.com/presentation/d/1KDY7bnCpCGabJn8UpmHGSb6z_hi_WGf3ETxzykTNjWY)).
-
-[![Build Status](https://travis-ci.org/codingo/VHostScan.svg?branch=master)](https://travis-ci.org/codingo/VHostScan) [![Python 3.2|3.6](https://img.shields.io/badge/python-3.2|3.6-green.svg)](https://www.python.org/) [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
- [![License](https://img.shields.io/badge/license-GPL3-_red.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html) [![Twitter](https://img.shields.io/badge/twitter-@____timk-blue.svg)](https://twitter.com/__timk) [![Twitter](https://img.shields.io/badge/twitter-@codingo__-blue.svg)](https://twitter.com/codingo_)
+# Virtual Host Scan
 
 
 ## Key Benefits
