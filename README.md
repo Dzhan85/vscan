@@ -64,14 +64,14 @@ _Note that a number of these examples reference 10.10.10.29. This IP refers to B
 The most straightforward example runs the default wordlist against example.com using the default of port 80:
 
 ```bash
-$ VHostScan -t example.com
+$ vscan -t example.com
 ```
 
 ### Quick Example with SSL
 If your connection requires SSL, you can use:
 
 ```bash
-$ VHostScan -t example.com --ssl
+$ vscan -t example.com --ssl
 ```
 
 ![VHOSTScan Wordlist example](https://github.com/codingo/codingo.github.io/blob/master/assets/Bank%20VHOST%20Example.png)
@@ -80,13 +80,13 @@ $ VHostScan -t example.com --ssl
 Say you have an SSH port forward listening on port 4444 fowarding traffic to port 80 on example.com's development machine. You could use the following to make VHostScan connect through your SSH tunnel via localhost:4444 but format the header requests to suit connecting straight to port 80:
 
 ```bash
-$ VHostScan -t localhost -b example.com -p 4444 -r 80
+$ vscan -t localhost -b example.com -p 4444 -r 80
 ```
 
 ### STDIN
 VHostScan Supports piping from other applications and will treat information passed to VHostScan as wordlist data, for example:
 ```bash
-$ cat bank.htb | VHostScan -t 10.10.10.29
+$ cat bank.htb | vscan -t 10.10.10.29
 ```
 
 ![VHOSTScan STDIN Example](https://github.com/codingo/codingo.github.io/blob/master/assets/Bank%20VHOST%20Pipe%20Example.png)
@@ -94,7 +94,7 @@ $ cat bank.htb | VHostScan -t 10.10.10.29
 ### STDIN and WordList
 You can still specify a wordlist to use along with stdin. In these cases wordlist information will be appended to stdin. For example:
 ```bash
-$ echo -e 'a.example.com\b.example.com' | VHostScan -t localhost -w ./wordlists/wordlist.txt
+$ echo -e 'a.example.com\b.example.com' | vscan -t localhost -w ./wordlists/wordlist.txt
 ```
 ### Fuzzy Logic
 Here is an example with fuzzy logic enabled. You can see the last comparison is much more similar than the first two (it is comparing the content not the actual hashes):
