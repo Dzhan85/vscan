@@ -23,10 +23,7 @@ with open("README.md") as file:
                     "can be used with pivot tools, detect catch-all"
                     "scenarios, aliases and dynamic default pages.",
         long_description=file.read(),
-        author="Luis",
         version=__version__,
-        author_email="atakurban@gmail.com",
-        url="https://github.com/Dzhan85/vscan",
         packages=find_packages(exclude=('tests')),
         package_data={'vscan': ['*.txt']},
         entry_points={
