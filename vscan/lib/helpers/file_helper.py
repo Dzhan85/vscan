@@ -4,7 +4,7 @@ import os
 from pkg_resources import resource_filename
 
 DEFAULT_UA_LIST = resource_filename(
-    'VHostScan', 'lib/ua-random-list.txt')
+    'vscan', 'lib/ua-random-list.txt')
 
 
 class file_helper(object):
