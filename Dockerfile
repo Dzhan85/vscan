@@ -1,3 +1,5 @@
+FROM ubuntu:18.04
+
 MAINTAINER Atadjan && Luis
 
 WORKDIR /vscan
