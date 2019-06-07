@@ -1,4 +1,3 @@
-FROM ubuntu:18.04
 MAINTAINER Atadjan && Luis
 
 WORKDIR /vscan
@@ -10,10 +9,15 @@ RUN apt-get update \
   && cd /usr/local/bin \
   && ln -s /usr/bin/python3 python \
   && pip3 install --upgrade pip
-# && pip install -r requirements.txt
+#  && pip install -r 'requirements.txt'
 
-EXPOSE 8080
+ADD requirements.txt /vscan/
+
+RUN pip install -r "requirements.txt"
+RUN python3 setup.py install
+
+#EXPOSE 8080
 
 CMD ["vscan"]
-ENTRYPOINT []
+#ENTRYPOINT []
 
