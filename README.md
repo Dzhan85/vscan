@@ -43,7 +43,7 @@ Run Dockerfile in command line:
 
 ```bash
 $ docker build -t vscan .
-
+```
 
 Enter to bash in container:
 
@@ -58,7 +58,6 @@ Send commands to docker container, we have already specified entrypoint to comma
 
 ```bash
 $ docker 
-```
 ```
 
 
@@ -137,20 +136,4 @@ Here is an example with fuzzy logic enabled. You can see the last comparison is 
 
 ![VHOSTScan Fuzzy Logic Example](https://github.com/codingo/codingo.github.io/blob/master/assets/VHostScan-Fuzzy-Wuzzy.PNG)
 
-## Running the tests
 
-This project includes a small battery of tests. It's really simple to run the tests:
-
-```bash
-pip install -r test-requirements.txt
-pytest
-```
-
-Or you can optionally run:
-
-```bash
-pip install -r test-requirements.txt
-python3 setup.py test
-```
-
-If you're thinking of adding a new feature to the project, consider also contributing with a couple of tests. A well-tested codebase is a sane codebase. :)
