@@ -12,9 +12,10 @@
 * Add simple response headers to bypass some WAF products
 * Identify new targets by using reverse lookups and append to wordlist
 
-## Product Comparisons
+## Comparisons between applications in search of virtual hosts:
 
-![VHOSTScan Feature Map](https://github.com/codingo/codingo.github.io/blob/master/assets/featureMap.PNG)
+
+ 
 
 # Install Requirements
 
