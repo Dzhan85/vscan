@@ -18,14 +18,49 @@
 
 # Install Requirements
 
-Install using:
+## Running on VM 
+
+Install requirements packages for python:
+
+```bash
+pip install -r test-requirements.txt
+```
+
+Run script to compile application:
 
 ```bash
 $ python3 setup.py install
 ```
 
-Dependencies will then be installed and VHostScan will be added to your path. If there is an issue regarding
+Dependencies will then be installed and 'vscan' will be added to your path. If there is an issue regarding
 running `python3 setup.py build_ext`, you will need to reinstall `numpy` using `pip uninstall numpy` and `pip install numpy==1.12.0`. This should resolve the issue as there are sometimes issues with numpy being installed through setup.py.
+
+
+## Running in container
+
+Run Dockerfile in command line:
+
+```bash
+$ docker build -t vscan .
+
+
+Enter to bash in container:
+
+```bash
+$ docker run -it vscan /bin/bash
+```
+
+Inside you can go to directory which was specified in Dockerfile:
+
+
+Send commands to docker container, we have already specified entrypoint to command 'vscan':
+
+```bash
+$ docker 
+```
+```
+
+
 
 # Usage
 
