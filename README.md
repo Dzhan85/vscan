@@ -4,7 +4,7 @@
 ## Feature
 
 * Works over HTTP and HTTPS
-* Ability to set the real port of the webserver to use in headers when pivoting through ssh/nc
+* Ability to set the real port of the webserver
 * Identify new targets by using reverse lookups and append to wordlist
 
 ## Comparisons between applications in search of virtual hosts:
