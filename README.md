@@ -86,18 +86,16 @@ $ docker
 | -v VERBOSE | Increase the output of the tool to show progress |
 
 
-## Usage Examples
 
-_Note that a number of these examples reference 10.10.10.29. This IP refers to BANK.HTB, a retired target machine from HackTheBox (https://www.hackthebox.eu/)._
+###  Running on http port
 
-### Quick Example
 The most straightforward example runs the default wordlist against example.com using the default of port 80:
 
 ```bash
 $ vscan -t example.com
 ```
 
-### Quick Example with SSL
+### Running on https(SSL)
 If your connection requires SSL, you can use:
 
 ```bash
