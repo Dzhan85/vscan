@@ -1,15 +1,10 @@
 # Virtual Host Scan
 
 
-## Key Benefits
+## Feature
 
-* Quickly highlight unique content in catch-all scenarios
-* Locate the outliers in catch-all scenarios where results have dynamic content on the page (such as the time)
-* Identify aliases by tweaking the unique depth of matches
-* Wordlist supports standard words and a variable to input a base hostname (for e.g. dev.%s from the wordlist would be run as dev.BASE_HOST)
 * Works over HTTP and HTTPS
 * Ability to set the real port of the webserver to use in headers when pivoting through ssh/nc
-* Add simple response headers to bypass some WAF products
 * Identify new targets by using reverse lookups and append to wordlist
 
 ## Comparisons between applications in search of virtual hosts:
