@@ -88,13 +88,8 @@ $ docker
 | -t TARGET_HOSTS | Set the target host. |
 | -w WORDLISTS | Set the wordlist(s) to use. You may specify multiple wordlists in comma delimited format (e.g. -w "./wordlists/simple.txt, ./wordlists/hackthebox.txt" (default ./wordlists/virtual-host-scanning.txt). |
 | -p PORT  | Set the port to use (default 80). |
-| --ignore-http-codes IGNORE_HTTP_CODES | Comma separated list of http codes to ignore with virtual host scans (default 404). |
-| --ignore-content-length IGNORE_CONTENT_LENGTH | Ignore content lengths of specificed amount. |
 | --ssl | If set then connections will be made over HTTPS instead of HTTP. |
 | --fuzzy-logic | If set then all unique content replies are compared and a similarity ratio is given for each pair. This helps to isolate vhosts in situations where a default page isn't static (such as having the time on it). |
-| --no-lookups | Disbale reverse lookups (identifies new targets and append to wordlist, on by default). | 
-| --random-agent | If set, each scan will use a random user-agent from a predefined list. |
-| --user-agent | Specify a user agent to use for scans. |
 | -oN OUTPUT_NORMAL | Normal output printed to a file when the -oN option is specified with a filename argument. |
 | -v VERBOSE | Increase the output of the tool to show progress |
 
