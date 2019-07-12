@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-MAINTAINER Atadjan && Luis
+MAINTAINER RP2
 
 WORKDIR /vscan
 

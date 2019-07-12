@@ -1,0 +1,122 @@
+Result of Virtual-Host scanner Log: 09/07/2019 02:27:57
+	Your Target: innopolis.ru
+	Your Base Host: innopolis.ru
+	Your Port: 443
+	Real Port 443
+	Ignore HTTP Codes: [404]
+	Ignore Content Length: 0
+	Wordlist: ['*.edu.%s', '*.%s', '*.portal.university.%s', '*.res.%s', '*.stem.%s', '*.uni.%s', '*.university.%s', '1c.university.%s', '1codata-d6934077-e4c9-4d3d-bea8-d4972dbc57da.university.%s', '2ndchance.university.%s', '3fa7d133-fea7-4d58-f771-3.bx24.apply.%s', '3fa7d133-fea7-4d58-f771-3af85921c4ad.bx24.apply.%s', '4d.university.%s', '5fa3d133-faa7-4d58-a885-3aa85921c4ad.bx24.apply.%s', '89e944d5-bf71-443e-9fcb-d7ac0915bdcf.bx24.apply.%s', 'abitur.%s', 'admin.res.%s', 'admissions.%s', 'apply.%s', 'apply.university.%s', 'aris.university.%s', 'autodiscover.edu.%s', 'autodiscover.%s', 'av.%s', 'azure.university.%s', 'azuregate.university.%s', 'azurerdgate01.uni.%s', 'azurerdgate02.uni.%s', 'brand.%s', 'bx24.apply.%s', 'cabinet.open.%s', 'calculus.edu.%s', 'campuslife.%s', 'career.%s', 'checkitnow.university.%s', 'city.%s', 'codetest.edu.%s', 'conf.%s', 'contest.university.%s', 'cordelianew.university.%s', 'crm.university.%s', 'ctf.university.%s', 'dc01-vh01.res.%s', 'dc02-vh01.%s', 'dc02-vh01.res.%s', 'dialin.%s', 'dialin.sez.%s', 'disk.city.%s', 'disk.university.%s', 'edisk.university.%s', 'edx.university.%s', 'edxstudio.university.%s', 'email.%s', 'en.hotel.university.%s', 'erp.stem.%s', 'exca01.edu.%s', 'exca02.edu.%s', 'fintechbot15.university.%s', 'fintechbot16.university.%s', 'gorod.%s', 'hotel.university.%s', 'hotelhelp.university.%s', 'iddvc.edu.%s', 'innopolis.ru', 'intensive.university.%s', 'it.university.%s', 'itold.university.%s', 'jira.university.%s', 'kp.university.%s', 'library.university.%s', 'login.%s', 'lyncadmin.%s', 'lyncdiscover.%s', 'lyncdiscover.sez.%s', 'lyncdiscoverinternal.%s', 'mail.%s', 'mail.university.%s', 'mealstat.university.%s', 'meet.%s', 'meet.sez.%s', 'megaplan.university.%s', 'moodle.university.%s', 'moodle2.university.%s', 'msitse.university.%s', 'my.university.%s', 'old.%s', 'olymp.%s', 'oos.%s', 'oos.university.%s', 'oosstack.%s', 'open.%s', 'pcms.university.%s', 'pki.university.%s', 'portal.university.%s', 'psi.university.%s', 'push.portal.university.%s', 'rdgate.university.%s', 'rds.stem.%s', 'rds.university.%s', 'rrobot01.university.%s', 'rrobot02.university.%s', 'rrobot03.university.%s', 'rrobot04.university.%s', 'scom.uni.%s', 'scom.university.%s', 'sfb.%s', 'sfb01.res.%s', 'sfbs01.res.%s', 'sip.%s', 'sip.sez.%s', 'skipcards.university.%s', 'smtp.%s', 'smtp.university.%s', 'sp.university.%s', 'spadmin.university.%s', 'srv-ise-1.technopark.%s', 'srv-ise-1.university.%s', 'srv-ise-2.technopark.%s', 'srv-ise-2.university.%s', 'sso.university.%s', 'st01-im01.res.%s', 'st01-sfbf01.res.%s', 'st02-sfbf01.res.%s', 'stage.apply.%s', 'stage.my.university.%s', 'staging.career.%s', 'stc.university.%s', 'stem.%s', 'stem.university.%s', 'studio.edx.university.%s', 'taiga.cordelianew.university.%s', 'tfs.university.%s', 'translation.university.%s', 'uis.university.%s', 'university.%s', 'urbanlab.university.%s', 'vidarch.university.%s', 'video.university.%s', 'visit.%s', 'vpn.university.%s', 'wa.sez.%s', 'webext.sez.%s', 'welcome.%s', 'wiki.%s', 'wiki.university.%s', 'www.apply.%s', 'www.campuslife.%s', 'www.%s', 'www.mail.%s', 'www.mail.university.%s', 'www.olymp.%s', 'www.stem.%s', 'www.university.%s', '185.27.192.129', 'host192.129.in-addr.arpa']
+	Unique Depth: 1
+	SSL: True
+	
+[+] Most likely matches with a unique count of 1 or less:
+	[>] city.innopolis.ru
+	[>] innopolis.ru
+	[>] old.innopolis.ru
+	[>] gorod.innopolis.ru
+	[>] brand.innopolis.ru
+	[>] welcome.innopolis.ru
+
+[+] Match similarity using fuzzy logic:
+	[>] city.innopolis.ru is 17% similar to innopolis.ru
+	[>] city.innopolis.ru is 12% similar to old.innopolis.ru
+	[>] city.innopolis.ru is 100% similar to gorod.innopolis.ru
+	[>] city.innopolis.ru is 27% similar to brand.innopolis.ru
+	[>] city.innopolis.ru is 11% similar to welcome.innopolis.ru
+	[>] innopolis.ru is 34% similar to old.innopolis.ru
+	[>] innopolis.ru is 17% similar to gorod.innopolis.ru
+	[>] innopolis.ru is 23% similar to brand.innopolis.ru
+	[>] innopolis.ru is 42% similar to welcome.innopolis.ru
+	[>] old.innopolis.ru is 12% similar to gorod.innopolis.ru
+	[>] old.innopolis.ru is 31% similar to brand.innopolis.ru
+	[>] old.innopolis.ru is 27% similar to welcome.innopolis.ru
+	[>] gorod.innopolis.ru is 27% similar to brand.innopolis.ru
+	[>] gorod.innopolis.ru is 11% similar to welcome.innopolis.ru
+	[>] brand.innopolis.ru is 18% similar to welcome.innopolis.ru
+
+[+] Full scan results
+
+brand.innopolis.ru (Code: 200) hash: 1095f9f34ac7607ff907f8ed5203a2125b79c1d78ad742a4293dcee25a1094bf
+	Server: nginx
+	Date: Tue, 09 Jul 2019 09:16:16 GMT
+	Content-Type: text/html; charset=UTF-8
+	Transfer-Encoding: chunked
+	Connection: keep-alive
+	P3P: policyref="/bitrix/p3p.xml", CP="NON DSP COR CUR ADM DEV PSA PSD OUR UNR BUS UNI COM NAV INT DEM STA"
+	X-Powered-CMS: Bitrix Site Manager (2fd8e57774c80cbed9c05eae06f3ee9e)
+	Set-Cookie: PHPSESSID=1frgtasa7l70r23egtncelr9p7; path=/; HttpOnly
+	Expires: Thu, 19 Nov 1981 08:52:00 GMT
+	Cache-Control: no-store, no-cache, must-revalidate
+	Pragma: no-cache
+	Content-Encoding: gzip
+
+city.innopolis.ru (Code: 200) hash: 0ce4bddb024c57a661eda4c34d3ec58cb4a7a127723d9d31ced7dcc0653f9b24
+	Server: nginx
+	Date: Tue, 09 Jul 2019 09:16:42 GMT
+	Content-Type: text/html; charset=UTF-8
+	Content-Length: 3917
+	Connection: keep-alive
+	P3P: policyref="/bitrix/p3p.xml", CP="NON DSP COR CUR ADM DEV PSA PSD OUR UNR BUS UNI COM NAV INT DEM STA"
+	X-Powered-CMS: Bitrix Site Manager (6745f601c5dfcb58aedada9c44bc3da3)
+	Set-Cookie: PHPSESSID=rskkhv28gdbldh7hqdbi2p45l1; path=/; HttpOnly
+	Expires: Thu, 19 Nov 1981 08:52:00 GMT
+	Cache-Control: no-store, no-cache, must-revalidate
+	Pragma: no-cache
+	Content-Encoding: gzip
+
+gorod.innopolis.ru (Code: 200) hash: 551b5bf4834bd0d532854e94cb56bdd8f121437ac7b13fa25bd674dcab95e983
+	Server: nginx
+	Date: Tue, 09 Jul 2019 09:18:34 GMT
+	Content-Type: text/html; charset=UTF-8
+	Content-Length: 3918
+	Connection: keep-alive
+	P3P: policyref="/bitrix/p3p.xml", CP="NON DSP COR CUR ADM DEV PSA PSD OUR UNR BUS UNI COM NAV INT DEM STA"
+	X-Powered-CMS: Bitrix Site Manager (6745f601c5dfcb58aedada9c44bc3da3)
+	Set-Cookie: PHPSESSID=uif0ml6hivl2vsp107toqi6ah5; path=/; HttpOnly
+	Expires: Thu, 19 Nov 1981 08:52:00 GMT
+	Cache-Control: no-store, no-cache, must-revalidate
+	Pragma: no-cache
+	Content-Encoding: gzip
+
+innopolis.ru (Code: 200) hash: f950d0350166843120a89344974141003d0dbb24b7a048e4e68137c5403939ab
+	Server: nginx
+	Date: Tue, 09 Jul 2019 09:18:53 GMT
+	Content-Type: text/html; charset=UTF-8
+	Content-Length: 9857
+	Connection: keep-alive
+	P3P: policyref="/bitrix/p3p.xml", CP="NON DSP COR CUR ADM DEV PSA PSD OUR UNR BUS UNI COM NAV INT DEM STA"
+	X-Powered-CMS: Bitrix Site Manager (c8da0d88c5c62f53243e84c166088c07)
+	Set-Cookie: PHPSESSID=cuv00mr2tg5oicmujqak8o9h71; path=/; HttpOnly
+	Expires: Thu, 19 Nov 1981 08:52:00 GMT
+	Cache-Control: no-store, no-cache, must-revalidate
+	Pragma: no-cache
+	Vary: Accept-Encoding
+	Content-Encoding: gzip
+
+old.innopolis.ru (Code: 200) hash: 2f9e9a9981337b5cc8864e2a0ff9cd1ae220312f34b2e0ccad50633476e4ed43
+	Server: nginx
+	Date: Tue, 09 Jul 2019 09:20:29 GMT
+	Content-Type: text/html; charset=UTF-8
+	Transfer-Encoding: chunked
+	Connection: keep-alive
+	P3P: policyref="/bitrix/p3p.xml", CP="NON DSP COR CUR ADM DEV PSA PSD OUR UNR BUS UNI COM NAV INT DEM STA"
+	X-Powered-CMS: Bitrix Site Manager (c8da0d88c5c62f53243e84c166088c07)
+	Set-Cookie: PHPSESSID=mj3ssrndtjq7oj2aubvldaeno3; path=/; HttpOnly
+	Expires: Thu, 19 Nov 1981 08:52:00 GMT
+	Cache-Control: no-store, no-cache, must-revalidate
+	Pragma: no-cache
+	Content-Encoding: gzip
+
+welcome.innopolis.ru (Code: 200) hash: eac1f81563a71a8fe6704ec2672ff3aa9d35cae3c12a4d97918d7b53871e9000
+	Server: nginx
+	Date: Tue, 09 Jul 2019 09:25:07 GMT
+	Content-Type: text/html; charset=UTF-8
+	Transfer-Encoding: chunked
+	Connection: keep-alive
+	P3P: policyref="/bitrix/p3p.xml", CP="NON DSP COR CUR ADM DEV PSA PSD OUR UNR BUS UNI COM NAV INT DEM STA"
+	X-Powered-CMS: Bitrix Site Manager (86900c0cc7337d8a8599e8d1ddde2920)
+	Set-Cookie: PHPSESSID=hasmraavghl6v9g8u13gp90u92; path=/; HttpOnly
+	Expires: Thu, 19 Nov 1981 08:52:00 GMT
+	Cache-Control: no-store, no-cache, must-revalidate
+	Pragma: no-cache
+	Content-Encoding: gzip

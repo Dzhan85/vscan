@@ -11,15 +11,16 @@ from .lib.helpers.file_helper import load_random_user_agents
 from .lib.helpers.wordlist_helper import WordList
 from .lib.core.__version__ import __version__
 from .lib.input import cli_argument_parser
+#from termcolor import colored
 
 DEFAULT_WORDLIST_FILE = resource_filename(
-    'vscan', 'wordlists/virtual-host-scanning.txt')
+    'vscan', 'wordlists/virtual-host-wordlist_updated.txt')
 
 
 def print_banner():
-    print("+-+-+-+-+-+-+-+-+-+  v. {}".format(__version__))
-    print("|R|P|2| |v|s|c|a|n|  Developed by Atadjan and Luis")
-    print("+-+-+-+-+-+-+-+-+-+   \n")
+    print("#"*20)
+    print("|R P 2   project  |  ")
+    print("#"*20)
 
 
 def main():
@@ -33,11 +34,11 @@ def main():
         arguments.wordlists, arguments.prefix, arguments.suffix)
 
     if len(wordlist) == 0:
-        print("[!] No words found in provided wordlists, unable to scan.")
+        print("[!] No words found")
         sys.exit(1)
 
     print(
-        "[+] Starting virtual host scan for {host} using "
+        "[+] Starting virtual host scanning for {host} using "
         "port {port} and {inputs}".format(
             host=arguments.target_hosts,
             port=arguments.port,
@@ -54,12 +55,10 @@ def main():
         user_agents = load_random_user_agents()
 
     if(arguments.ssl):
-        print("[>] SSL flag set, sending all results over HTTPS.")
+        print("[>] SSL was chosen, sending all results over HTTPS.")
 
-    if(arguments.add_waf_bypass_headers):
-        print("[>] WAF flag set, sending simple WAF bypass headers.")
 
-    print("[>] Ignoring HTTP codes: {}".format(arguments.ignore_http_codes))
+    print("[>] HTTP codes was ignored: {}".format(arguments.ignore_http_codes))
 
     if(arguments.ignore_content_length > 0):
         print(
@@ -68,8 +67,6 @@ def main():
             )
         )
 
-    if arguments.first_hit:
-        print("[>] First hit is set.")
 
     if not arguments.no_lookup:
         try:
@@ -110,16 +107,6 @@ def main():
         output.write_normal(arguments.output_normal)
         print("\n[+] Writing normal ouptut to {}".format(
             arguments.output_normal))
-
-    if(arguments.output_json):
-        output.output_json(arguments.output_json)
-        print("\n[+] Writing json output to {}".format(
-            arguments.output_json))
-
-    if(arguments.output_grepable):
-        output.output_grepable(arguments.output_grepable)
-        print("\n[+] Writing grepable ouptut to {}".format(
-            arguments.output_json))
 
 
 if __name__ == "__main__":

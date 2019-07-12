@@ -1,0 +1,48 @@
+Result of Virtual-Host scanner Log: 08/07/2019 02:21:14
+	Your Target: innopolis.ru
+	Your Base Host: innopolis.ru
+	Your Port: 443
+	Real Port 443
+	Ignore HTTP Codes: [404]
+	Ignore Content Length: 0
+	Wordlist: ['%s', '127.0.0.1', 'admin', 'admin.%s', 'administration', 'administration.%s', 'ads', 'adserver', 'alerts', 'alpha', 'alpha.%s', 'ap', 'apache', 'api', 'app', 'apps', 'appserver', 'aptest', 'auth', 'backup', 'beta', 'beta.%s', 'blog', 'cdn', 'chat', 'citrix', 'cms', 'corp', 'crs', 'cvs', 'dashboard', 'database', 'db', 'demo', 'dev', 'dev.%s', 'devel', 'development', 'development.%s', 'devsql', 'devtest', 'dhcp', 'direct', 'dmz', 'dns', 'dns0', 'dns1', 'dns2', 'download', 'en', 'erp', 'eshop', 'exchange', 'f5', 'fileserver', 'firewall', 'forum', 'ftp', 'ftp0', 'git', 'gw', 'help', 'helpdesk', 'home', 'host', 'http', 'id', 'images', 'info', 'internal', 'internet', 'intra', 'intranet', 'ipv6', 'lab', 'ldap', 'linux', 'local', 'localhost', 'log', 'm', 'm.%s', 'mail', 'mail2', 'mail3', 'mailgate', 'main', 'manage', 'mgmt', 'mirror', 'mobile', 'mobile.%s', 'monitor', 'mssql', 'mta', 'mx', 'mx0', 'mx1', 'mysql', 'news', 'noc', 'ns', 'ns0', 'ns1', 'ns2', 'ns3', 'ntp', 'old', 'old.%s', 'ops', 'oracle', 'owa', 'pbx', 'portal', 's3', 'secure', 'secure.%s', 'server', 'sharepoint', 'shop', 'sip', 'smtp', 'sql', 'squid', 'ssh', 'ssl', 'stage', 'staging', 'staging.%s', 'stats', 'status', 'status.%s', 'svn', 'syslog', 'test', 'test1', 'test2', 'testing', 'uat', 'uat.%s', 'upload', 'v1', 'v1.%s', 'v2', 'v2.%s', 'v3', 'v3.%s', 'vm', 'vnc', 'voip', 'vpn', 'web', 'web2test', 'whois', 'wiki', 'www', 'www.%s', 'www2', 'xml', '185.27.192.129', 'host192.129.in-addr.arpa']
+	Unique Depth: 1
+	SSL: True
+	
+[+] Most likely matches with a unique count of 1 or less:
+	[>] old.innopolis.ru
+	[>] innopolis.ru
+
+[+] Match similarity using fuzzy logic:
+	[>] old.innopolis.ru is 34% similar to innopolis.ru
+
+[+] Full scan results
+
+innopolis.ru (Code: 200) hash: f950d0350166843120a89344974141003d0dbb24b7a048e4e68137c5403939ab
+	Server: nginx
+	Date: Mon, 08 Jul 2019 09:08:31 GMT
+	Content-Type: text/html; charset=UTF-8
+	Content-Length: 9857
+	Connection: keep-alive
+	P3P: policyref="/bitrix/p3p.xml", CP="NON DSP COR CUR ADM DEV PSA PSD OUR UNR BUS UNI COM NAV INT DEM STA"
+	X-Powered-CMS: Bitrix Site Manager (c8da0d88c5c62f53243e84c166088c07)
+	Set-Cookie: PHPSESSID=ut1e6dnepbvjba8rvesh3ml7m5; path=/; HttpOnly
+	Expires: Thu, 19 Nov 1981 08:52:00 GMT
+	Cache-Control: no-store, no-cache, must-revalidate
+	Pragma: no-cache
+	Vary: Accept-Encoding
+	Content-Encoding: gzip
+
+old.innopolis.ru (Code: 200) hash: c15e7ed58b7f58f167241f4f0674dfd2cf7491fcb0d81af5c41a996adf442bfb
+	Server: nginx
+	Date: Mon, 08 Jul 2019 09:17:01 GMT
+	Content-Type: text/html; charset=UTF-8
+	Transfer-Encoding: chunked
+	Connection: keep-alive
+	P3P: policyref="/bitrix/p3p.xml", CP="NON DSP COR CUR ADM DEV PSA PSD OUR UNR BUS UNI COM NAV INT DEM STA"
+	X-Powered-CMS: Bitrix Site Manager (c8da0d88c5c62f53243e84c166088c07)
+	Set-Cookie: PHPSESSID=q9uqhrgrjoalhud2liau7ud976; path=/; HttpOnly
+	Expires: Thu, 19 Nov 1981 08:52:00 GMT
+	Cache-Control: no-store, no-cache, must-revalidate
+	Pragma: no-cache
+	Content-Encoding: gzip

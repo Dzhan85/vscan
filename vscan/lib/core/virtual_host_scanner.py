@@ -15,7 +15,7 @@ requests.packages.urllib3.disable_warnings()
 
 DEFAULT_USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) '\
                      'AppleWebKit/537.36 (KHTML, like Gecko) '\
-                     'Chrome/61.0.3163.100 Safari/537.36'
+                     'Chrome/74.0.3729.157 Safari/537.36'
 
 try:
     assert requests.__version__ != "2.18.0"
@@ -75,10 +75,10 @@ class virtual_host_scanner(object):
             kwargs.get('ignore_content_length', 0)
         )
 
-        self.add_waf_bypass_headers = kwargs.get(
-            'add_waf_bypass_headers',
-            False
-        )
+        #self.add_waf_bypass_headers = kwargs.get(
+        #    'add_waf_bypass_headers',
+        #    False
+        #)
 
         # this can be made redundant in future with better exceptions
         self.completed_scan = False
@@ -129,13 +129,17 @@ class virtual_host_scanner(object):
                 'Accept': '*/*'
             }
 
-            if self.add_waf_bypass_headers:
-                headers.update({
-                    'X-Originating-IP': '127.0.0.1',
-                    'X-Forwarded-For': '127.0.0.1',
-                    'X-Remote-IP': '127.0.0.1',
-                    'X-Remote-Addr': '127.0.0.1'
-                })
+           # if self.add_waf_bypass_headers:
+           #     headers.update({
+           #         'X-Originating-IP': '127.0.0.1',
+           #         'X-Forwarded-For': '127.0.0.1',
+           #         'X-Remote-IP': '127.0.0.1',
+           #         'X-Remote-Addr': '127.0.0.1'
+           #     })
+
+            #    """
+            #    Application choosing HTTP or HTTPS
+            #    """
 
             dest_url = '{}://{}:{}/'.format(
                 'https' if self.ssl else 'http',
@@ -202,7 +206,7 @@ class virtual_host_scanner(object):
         Creates a host using the responce and the hash.
         Prints current result in real time.
         """
-        output = '[#] Found: {} (code: {}, length: {}, hash: {})\n'.format(
+        output = '[#] Found: {} (code: {}, content-length: {}, page-hash: {})\n'.format(
             hostname,
             response.status_code,
             response.headers.get('content-length'),
@@ -213,7 +217,7 @@ class virtual_host_scanner(object):
         host.hostname = hostname
         host.response_code = response.status_code
         host.hash = page_hash
-        host.contnet = response.content
+        host.content = response.content
 
         for key, val in response.headers.items():
             output += '  {}: {}\n'.format(key, val)

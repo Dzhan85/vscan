@@ -9,3 +9,10 @@ class discovered_host(object):
         self.hash = ''
         self.keys = []
         self.content = b''
+
+"""
+Adding to output content-type, content-length
+"""
+
+        #self.content_type = ''
+        #self.content_length ''

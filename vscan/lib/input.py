@@ -18,13 +18,13 @@ class cli_argument_parser(object):
 
         parser.add_argument(
             '-t', dest='target_hosts', required=True,
-            help='Set a target range of addresses to target. Ex 185.27.192.1-255'
+            help='Set a target range of addresses. Ex 185.27.192.1-255'
         ),
 
         parser.add_argument(
             '-w', dest='wordlists',
             help='Set the wordlists to use (default '
-                 './wordlists/virtual-host-scanning.txt)'
+                 './wordlists/virtual-host-wordlist_updated.txt)'
         )
 
         parser.add_argument(
@@ -67,12 +67,12 @@ class cli_argument_parser(object):
                             '(default 0).'
         )
 
-        parser.add_argument(
-            '--first-hit', dest='first_hit', action='store_true',
-            default=False,
-            help='Return first successful result. Only use in scenarios where '
-                 'you are sure no catch-all is configured (such as a CTF).'
-        )
+        #parser.add_argument(
+        #    '--first-hit', dest='first_hit', action='store_true',
+        #    default=False,
+        #    help='Return first successful result. Only use in scenarios where '
+        #         'you are sure no catch-all is configured (such as a CTF).'
+        #)
 
         parser.add_argument(
             '--unique-depth', dest='unique_depth', type=int, default=1,
@@ -100,17 +100,17 @@ class cli_argument_parser(object):
                  'to wordlist, on by default).'
         )
 
-        parser.add_argument(
-            '--rate-limit', dest='rate_limit', type=int, default=0,
-            help='Amount of time in seconds to delay between each scan '
-                 '(default 0).'
-        )
+        #parser.add_argument(
+        #    '--rate-limit', dest='rate_limit', type=int, default=0,
+        #    help='Amount of time in seconds to delay between each scan '
+        #         '(default 0).'
+        #)
 
-        parser.add_argument(
-            '--waf', dest='add_waf_bypass_headers', action='store_true',
-            default=False,
-            help='If set then simple WAF bypass headers will be sent.'
-        )
+        #parser.add_argument(
+        #    '--waf', dest='add_waf_bypass_headers', action='store_true',
+        #    default=False,
+        #    help='If set then simple WAF bypass headers will be sent.'
+        #)
 
         parser.add_argument(
             '-v', dest='verbose', action='store_true', default=False,
@@ -124,17 +124,17 @@ class cli_argument_parser(object):
                  'specified with a filename argument.'
         )
 
-        output.add_argument(
-            '-oJ', dest='output_json',
-            help='JSON output printed to a file when the -oJ option is '
-                 'specified with a filename argument.'
-        )
+        #output.add_argument(
+        #    '-oJ', dest='output_json',
+        #    help='JSON output printed to a file when the -oJ option is '
+        #         'specified with a filename argument.'
+        #)
 
-        output.add_argument(
-            '-oG', dest='output_grepable',
-            help='Grepable output printed to a file when the -oG option is '
-                 'specified with a filename argument.'
-        )
+        #output.add_argument(
+        #    '-oG', dest='output_grepable',
+        #    help='Grepable output printed to a file when the -oG option is '
+        #         'specified with a filename argument.'
+        #)
 
         user_agent = parser.add_mutually_exclusive_group()
         user_agent.add_argument(

@@ -6,7 +6,7 @@ from pkg_resources import resource_filename
 from .file_helper import get_combined_word_lists
 
 DEFAULT_WORDLIST_FILE = resource_filename(
-    'vscan', 'wordlists/virtual-host-scanning.txt')
+    'vscan', 'wordlists/Subdomains.txt')
 
 
 class WordList:

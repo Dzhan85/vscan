@@ -18,10 +18,6 @@ with open("README.md") as file:
         pass
     setup(
         name="vscan",
-        license="GPLv3",
-        description="A virtual host scanner that performs reverse lookups, "
-                    "can be used with pivot tools, detect catch-all"
-                    "scenarios, aliases and dynamic default pages.",
         long_description=file.read(),
         version=__version__,
         packages=find_packages(exclude=('tests')),

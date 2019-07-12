@@ -1,0 +1,58 @@
+Result of Virtual-Host scanner Log: 08/07/2019 02:44:30
+	Your Target: innopolis.ru
+	Your Base Host: innopolis.ru
+	Your Port: 443
+	Real Port 443
+	Ignore HTTP Codes: [404]
+	Ignore Content Length: 0
+	Wordlist: ['%s', '127.0.0.1', 'admin', 'admin.%s', 'administration', 'administration.%s', 'ads', 'adserver', 'alerts', 'alpha', 'alpha.%s', 'ap', 'apache', 'api', 'app', 'apps', 'appserver', 'aptest', 'auth', 'backup', 'beta', 'beta.%s', 'blog', 'cdn', 'chat', 'citrix', 'cms', 'corp', 'crs', 'cvs', 'dashboard', 'database', 'db', 'demo', 'dev', 'dev.%s', 'devel', 'development', 'development.%s', 'devsql', 'devtest', 'dhcp', 'direct', 'dmz', 'dns', 'dns0', 'dns1', 'dns2', 'download', 'en', 'erp', 'eshop', 'exchange', 'f5', 'fileserver', 'firewall', 'forum', 'ftp', 'ftp0', 'git', 'gw', 'help', 'helpdesk', 'home', 'host', 'http', 'id', 'images', 'info', 'internal', 'internet', 'intra', 'intranet', 'ipv6', 'lab', 'ldap', 'linux', 'local', 'localhost', 'log', 'm', 'm.%s', 'mail', 'mail2', 'mail3', 'mailgate', 'main', 'manage', 'mgmt', 'mirror', 'mobile', 'mobile.%s', 'monitor', 'mssql', 'mta', 'mx', 'mx0', 'mx1', 'mysql', 'news', 'noc', 'ns', 'ns0', 'ns1', 'ns2', 'ns3', 'ntp', 'old', 'old.%s', 'ops', 'oracle', 'owa', 'pbx', 'portal', 's3', 'secure', 'secure.%s', 'server', 'sharepoint', 'shop', 'sip', 'smtp', 'sql', 'squid', 'ssh', 'ssl', 'stage', 'staging', 'staging.%s', 'stats', 'status', 'status.%s', 'svn', 'syslog', 'test', 'test1', 'test2', 'testing', 'uat', 'uat.%s', 'upload', 'v1', 'v1.%s', 'v2', 'v2.%s', 'v3', 'v3.%s', 'vm', 'vnc', 'voip', 'vpn', 'web', 'web2test', 'whois', 'wiki', 'www', 'www.%s', 'www2', 'xml', '*.edu.%s', '*..%s', '*.portal.university.%s', '*.res.%s', '*.stem.%s', '*.uni.%s', '*.university.%s', '1c.university.%s', '1codata-d6934077-e4c9-4d3d-bea8-d4972dbc57da.university.%s', '2ndchance.university.%s', '3fa7d133-fea7-4d58-f771-3.bx24.apply.%s', '3fa7d133-fea7-4d58-f771-3af85921c4ad.bx24.apply.%s', '4d.university.%s', 'abitur.%s', 'admin.res.%s', 'admissions.%s', 'apply.%s', 'apply.university.%s', 'aris.university.%s', 'autodiscover.%s', 'autodiscover.%s', 'av.innopolis.%s', 'innopolis.ru.%s', '185.27.192.129', 'host192.129.in-addr.arpa']
+	Unique Depth: 1
+	SSL: True
+	
+[+] Most likely matches with a unique count of 1 or less:
+	[>] *..innopolis.ru
+	[>] old.innopolis.ru
+	[>] innopolis.ru
+
+[+] Match similarity using fuzzy logic:
+	[>] *..innopolis.ru is 1% similar to old.innopolis.ru
+	[>] *..innopolis.ru is 1% similar to innopolis.ru
+	[>] old.innopolis.ru is 34% similar to innopolis.ru
+
+[+] Full scan results
+
+innopolis.ru (Code: 200) hash: 0147cf1600e01dc435cbe1e7b1ce2e6a27809dc7153feea247887aa805b98cde
+	Server: nginx
+	Date: Mon, 08 Jul 2019 09:31:55 GMT
+	Content-Type: text/html; charset=UTF-8
+	Content-Length: 9858
+	Connection: keep-alive
+	P3P: policyref="/bitrix/p3p.xml", CP="NON DSP COR CUR ADM DEV PSA PSD OUR UNR BUS UNI COM NAV INT DEM STA"
+	X-Powered-CMS: Bitrix Site Manager (c8da0d88c5c62f53243e84c166088c07)
+	Set-Cookie: PHPSESSID=g9o86rq0sf6p45mnv5qlq5se76; path=/; HttpOnly
+	Expires: Thu, 19 Nov 1981 08:52:00 GMT
+	Cache-Control: no-store, no-cache, must-revalidate
+	Pragma: no-cache
+	Vary: Accept-Encoding
+	Content-Encoding: gzip
+
+old.innopolis.ru (Code: 200) hash: 81cec96a61d08ae8018af900979f8bdf66ac5dc7258b2a270bee72c7c660a1cb
+	Server: nginx
+	Date: Mon, 08 Jul 2019 09:39:12 GMT
+	Content-Type: text/html; charset=UTF-8
+	Transfer-Encoding: chunked
+	Connection: keep-alive
+	P3P: policyref="/bitrix/p3p.xml", CP="NON DSP COR CUR ADM DEV PSA PSD OUR UNR BUS UNI COM NAV INT DEM STA"
+	X-Powered-CMS: Bitrix Site Manager (c8da0d88c5c62f53243e84c166088c07)
+	Set-Cookie: PHPSESSID=p1ttc70vjdh034knon0efhe094; path=/; HttpOnly
+	Expires: Thu, 19 Nov 1981 08:52:00 GMT
+	Cache-Control: no-store, no-cache, must-revalidate
+	Pragma: no-cache
+	Content-Encoding: gzip
+
+*..innopolis.ru (Code: 400) hash: daaf01f233b282c282c5aeb554d2435a06d85742a7d630e10222d68b1e45ecc4
+	Server: nginx
+	Date: Mon, 08 Jul 2019 09:42:37 GMT
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 568
+	Connection: close

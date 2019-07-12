@@ -1,0 +1,2 @@
+ vscan -t innopolis.ru -w /home/test/Desktop/rp2/vscan/vscan/wordlists/virtual-host-wordlist_updated.txt 
+
