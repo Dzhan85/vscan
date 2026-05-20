@@ -1,4 +1,5 @@
 import hashlib
+import logging
 import os
 import random
 import time
@@ -12,6 +13,9 @@ from .discovered_host import discovered_host
 
 urllib3.disable_warnings()
 requests.packages.urllib3.disable_warnings()
+
+# Setup logging
+logger = logging.getLogger(__name__)
 
 DEFAULT_USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) '\
                      'AppleWebKit/537.36 (KHTML, like Gecko) '\
@@ -75,10 +79,13 @@ class virtual_host_scanner(object):
             kwargs.get('ignore_content_length', 0)
         )
 
-        #self.add_waf_bypass_headers = kwargs.get(
-        #    'add_waf_bypass_headers',
-        #    False
-        #)
+        self.add_waf_bypass_headers = kwargs.get(
+            'add_waf_bypass_headers',
+            False
+        )
+
+        self.timeout = int(kwargs.get('timeout', 10))
+        self.proxy = kwargs.get('proxy')
 
         # this can be made redundant in future with better exceptions
         self.completed_scan = False
@@ -105,6 +112,81 @@ class virtual_host_scanner(object):
             int(code) for code in codes.replace(' ', '').split(',')
         ]
 
+    def _build_headers(self, host_header):
+        """Build request headers"""
+        headers = {
+            'User-Agent': random.choice(self.user_agents),
+            'Host': host_header,
+            'Accept': '*/*'
+        }
+
+        if self.add_waf_bypass_headers:
+            headers.update({
+                'X-Originating-IP': '127.0.0.1',
+                'X-Forwarded-For': '127.0.0.1',
+                'X-Remote-IP': '127.0.0.1',
+                'X-Remote-Addr': '127.0.0.1'
+            })
+
+        return headers
+
+    def _should_ignore_response(self, res):
+        """Check if response should be ignored"""
+        if res.status_code in self.ignore_http_codes:
+            return True
+
+        response_length = int(res.headers.get('content-length', 0))
+        if self.ignore_content_length and \
+           self.ignore_content_length == response_length:
+            return True
+
+        return False
+
+    def _scan_single_host(self, hostname):
+        """Scan a single virtual host"""
+        host_header = hostname if self.real_port == 80 else f'{hostname}:{self.real_port}'
+        headers = self._build_headers(host_header)
+        dest_url = f"{'https' if self.ssl else 'http'}://{self.target}:{self.port}/"
+
+        global _target_host
+        _target_host = hostname
+
+        try:
+            proxies = {'http': self.proxy, 'https': self.proxy} if self.proxy else None
+            # Note: verify=False is intentional for security testing purposes
+            # This tool is designed to scan virtual hosts which may have self-signed certs
+            res = requests.get(
+                dest_url,
+                headers=headers,
+                verify=False,
+                timeout=self.timeout,
+                proxies=proxies
+            )
+        except requests.exceptions.Timeout:
+            logger.warning(f"Timeout scanning {hostname}")
+            if self.verbose:
+                print(f"[!] Timeout scanning {hostname}")
+            return None
+        except requests.exceptions.ConnectionError as e:
+            logger.warning(f"Connection error scanning {hostname}: {e}")
+            if self.verbose:
+                print(f"[!] Connection error scanning {hostname}")
+            return None
+        except requests.exceptions.RequestException as e:
+            logger.exception(f"Request error scanning {hostname}")
+            if self.verbose:
+                print(f"[!] Request error scanning {hostname}: {e}")
+            return None
+
+        if self._should_ignore_response(res):
+            return None
+
+        page_hash = hashlib.sha256(res.text.encode('utf-8')).hexdigest()
+        host = self.create_host(res, hostname, page_hash)
+        self.results.append(f'{hostname},{page_hash}')
+
+        return host
+
     def scan(self):
         if not self.base_host:
             self.base_host = self.target
@@ -116,65 +198,18 @@ class virtual_host_scanner(object):
             hostname = virtual_host.replace('%s', self.base_host)
 
             if self.verbose:
-                print("[*] Scanning {hostname}".format(hostname=hostname))
+                print(f"[*] Scanning {hostname}")
 
-            if self.real_port == 80:
-                host_header = hostname
-            else:
-                host_header = '{}:{}'.format(hostname, self.real_port)
+            host = self._scan_single_host(hostname)
 
-            headers = {
-                'User-Agent': random.choice(self.user_agents),
-                'Host': host_header,
-                'Accept': '*/*'
-            }
+            if host:
+                self.hosts.append(host)
 
-           # if self.add_waf_bypass_headers:
-           #     headers.update({
-           #         'X-Originating-IP': '127.0.0.1',
-           #         'X-Forwarded-For': '127.0.0.1',
-           #         'X-Remote-IP': '127.0.0.1',
-           #         'X-Remote-Addr': '127.0.0.1'
-           #     })
+                if self.first_hit:
+                    break
 
-            #    """
-            #    Application choosing HTTP or HTTPS
-            #    """
-
-            dest_url = '{}://{}:{}/'.format(
-                'https' if self.ssl else 'http',
-                self.target,
-                self.port
-            )
-
-            _target_host = hostname
-
-            try:
-                res = requests.get(dest_url, headers=headers, verify=False)
-            except requests.exceptions.RequestException:
-                continue
-
-            if res.status_code in self.ignore_http_codes:
-                continue
-
-            response_length = int(res.headers.get('content-length', 0))
-            if self.ignore_content_length and \
-               self.ignore_content_length == response_length:
-                continue
-
-            # hash the page results to aid in identifing unique content
-            page_hash = hashlib.sha256(res.text.encode('utf-8')).hexdigest()
-
-            self.hosts.append(self.create_host(res, hostname, page_hash))
-
-            # add url and hash into array for likely matches
-            self.results.append(hostname + ',' + page_hash)
-
-            if len(self.hosts) >= 1 and self.first_hit:
-                break
-
-            # rate limit the connection, if the int is 0 it is ignored
-            time.sleep(self.rate_limit)
+            if self.rate_limit > 0:
+                time.sleep(self.rate_limit)
 
         self.completed_scan = True
 

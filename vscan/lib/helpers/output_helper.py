@@ -52,6 +52,10 @@ class output_helper(object):
                 "\n[!] No matches with an"
                 " unique count of {} or less.").format(depth)
 
+    def write_json(self, filename):
+        """Wrapper for output_json to maintain consistency"""
+        self.output_json(filename)
+
     def output_json(self, filename):
         file = file_helper(filename)
         output = dict()
@@ -120,6 +124,7 @@ class output_helper(object):
         return output
 
     def output_grepable_detail(self):
+        output = ""
         for host in self.scanner.hosts:
             output += "\n{}\t{}\t{}".format(
                 str(host.hostname),

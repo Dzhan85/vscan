@@ -1,25 +1,46 @@
-FROM ubuntu:18.04
+# Multi-stage build for optimized image size
+FROM python:3.11-slim AS builder
 
-MAINTAINER RP2
+LABEL maintainer="RP2"
+LABEL description="Virtual Host Scanner - Fast and efficient vhost discovery tool"
+
+WORKDIR /build
+
+# Install build dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    gcc \
+    python3-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements first for better layer caching
+COPY requirements.txt .
+RUN pip install --no-cache-dir --user -r requirements.txt
+
+# Copy application files
+COPY . .
+
+# Install the application
+RUN python setup.py install --user
+
+# Final stage - minimal runtime image
+FROM python:3.11-slim
 
 WORKDIR /vscan
 
-COPY . /vscan/
+# Copy installed packages from builder
+COPY --from=builder /root/.local /root/.local
+COPY --from=builder /build /vscan
 
-RUN apt-get update \
-  && apt-get install -y python3-pip python3-dev \
-  && cd /usr/local/bin \
-  && ln -s /usr/bin/python3 python \
-  && pip3 install --upgrade pip
-#  && pip install -r 'requirements.txt'
+# Make sure scripts in .local are usable
+ENV PATH=/root/.local/bin:$PATH
 
-ADD requirements.txt /vscan/
+# Create non-root user for security
+RUN useradd -m -u 1000 vscan && \
+    chown -R vscan:vscan /vscan
 
-RUN pip install -r "requirements.txt"
-RUN python3 setup.py install
+USER vscan
 
-#EXPOSE 8080
-
-CMD ["vscan"]
-#ENTRYPOINT []
+ENTRYPOINT ["vscan"]
+CMD ["--help"]
 

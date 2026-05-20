@@ -35,7 +35,13 @@ class cli_argument_parser(object):
 
         parser.add_argument(
             '-p', dest='port', default=80, type=int,
-            help='Set the port to use (default 80).'
+            help='Set the port to use (default 80). Use --ports for multiple ports.'
+        )
+
+        parser.add_argument(
+            '--ports', dest='ports', default=None,
+            help='Scan multiple ports. Supports comma-separated (80,443,8080) '
+                 'and ranges (80-100). Example: --ports 80,443,8000-9000'
         )
 
         parser.add_argument(
@@ -67,12 +73,12 @@ class cli_argument_parser(object):
                             '(default 0).'
         )
 
-        #parser.add_argument(
-        #    '--first-hit', dest='first_hit', action='store_true',
-        #    default=False,
-        #    help='Return first successful result. Only use in scenarios where '
-        #         'you are sure no catch-all is configured (such as a CTF).'
-        #)
+        parser.add_argument(
+            '--first-hit', dest='first_hit', action='store_true',
+            default=False,
+            help='Return first successful result. Only use in scenarios where '
+                 'you are sure no catch-all is configured (such as a CTF).'
+        )
 
         parser.add_argument(
             '--unique-depth', dest='unique_depth', type=int, default=1,
@@ -100,41 +106,61 @@ class cli_argument_parser(object):
                  'to wordlist, on by default).'
         )
 
-        #parser.add_argument(
-        #    '--rate-limit', dest='rate_limit', type=int, default=0,
-        #    help='Amount of time in seconds to delay between each scan '
-        #         '(default 0).'
-        #)
+        parser.add_argument(
+            '--rate-limit', dest='rate_limit', type=int, default=0,
+            help='Amount of time in seconds to delay between each scan '
+                 '(default 0).'
+        )
 
-        #parser.add_argument(
-        #    '--waf', dest='add_waf_bypass_headers', action='store_true',
-        #    default=False,
-        #    help='If set then simple WAF bypass headers will be sent.'
-        #)
+        parser.add_argument(
+            '--waf', dest='add_waf_bypass_headers', action='store_true',
+            default=False,
+            help='If set then simple WAF bypass headers will be sent.'
+        )
+
+        parser.add_argument(
+            '--timeout', dest='timeout', type=int, default=10,
+            help='Request timeout in seconds (default 10).'
+        )
+
+        parser.add_argument(
+            '--proxy', dest='proxy',
+            help='Proxy URL (e.g., http://127.0.0.1:8080 or socks5://127.0.0.1:1080).'
+        )
+
+        parser.add_argument(
+            '--concurrency', dest='concurrency', type=int, default=10,
+            help='Number of concurrent requests for async scanning (default 10).'
+        )
+
+        parser.add_argument(
+            '--no-async', dest='async_scan', action='store_false',
+            default=True,
+            help='Disable async scanning and use traditional sequential scanning.'
+        )
 
         parser.add_argument(
             '-v', dest='verbose', action='store_true', default=False,
             help='Print verbose output'
         )
 
-        output = parser.add_mutually_exclusive_group()
-        output.add_argument(
+        parser.add_argument(
             '-oN', dest='output_normal',
             help='Normal output printed to a file when the -oN option is '
                  'specified with a filename argument.'
         )
 
-        #output.add_argument(
-        #    '-oJ', dest='output_json',
-        #    help='JSON output printed to a file when the -oJ option is '
-        #         'specified with a filename argument.'
-        #)
+        parser.add_argument(
+            '-oJ', dest='output_json',
+            help='JSON output printed to a file when the -oJ option is '
+                 'specified with a filename argument.'
+        )
 
-        #output.add_argument(
-        #    '-oG', dest='output_grepable',
-        #    help='Grepable output printed to a file when the -oG option is '
-        #         'specified with a filename argument.'
-        #)
+        parser.add_argument(
+            '-oG', dest='output_grepable',
+            help='Grepable output printed to a file when the -oG option is '
+                 'specified with a filename argument.'
+        )
 
         user_agent = parser.add_mutually_exclusive_group()
         user_agent.add_argument(
